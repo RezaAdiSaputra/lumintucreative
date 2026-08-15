@@ -162,6 +162,7 @@
         .divider {
             width: 48px;
             height: 1.5px;
+            transform: translateY(-10px);
             background: linear-gradient(90deg, transparent, var(--accent), transparent);
             margin: 1.4rem auto 0;
             border: none;
