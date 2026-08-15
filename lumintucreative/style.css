@@ -455,4 +455,12 @@
             .link-card   { padding: 1.25rem 2.2rem; }
             .link-card:hover { transform: translateY(-4px) scale(1.01); }
             .link-label  { font-size: 1.05rem; letter-spacing: 0.09em; }
+
+            /* Creative Visual: tetap lebar, dibuat lebih tinggi tanpa gepeng */
+            .site-tagline {
+                font-size: 1.5rem;
+                letter-spacing: 0.8em;
+                transform: scaleY(1.25);
+                transform-origin: center;
+            }
         }
