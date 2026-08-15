@@ -1,0 +1,458 @@
+@font-face {
+            font-family: 'Resedia';
+            src: url('fonts/Rasedia-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        @font-face {
+            font-family: 'OliveraVisual';
+            src: url('fonts/Olivera_Demo.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        /* ============================================================
+           RESET & BASE
+           ============================================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent:    #f8d01f;
+            --bg:        #000000;
+            --bg-card:   #0d0d0d;
+            --bg-hover:  #1a1a1a;
+            --border:    rgba(248, 208, 31, 0.18);
+            --shadow:    rgba(248, 208, 31, 0.12);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--accent);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            overflow-x: hidden;
+            font-family: 'Playfair Display', serif; /* fallback */
+        }
+
+        /* ============================================================
+           BACKGROUND GLOW EFFECT
+           ============================================================ */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(248, 208, 31, 0.07) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ============================================================
+           CONTAINER
+           ============================================================ */
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        /* ============================================================
+           HEADER – NAMA & TAGLINE
+           ============================================================ */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeDown 0.8s ease both;
+        }
+
+        /* AVATAR (opsional) */
+        .avatar-wrap {
+            margin-bottom: 1.4rem;
+        }
+
+        .avatar {
+            width: clamp(85px, 22vw, 135px);
+            height: clamp(85px, 22vw, 135px);
+            border-radius: 100px;
+            object-fit: cover;
+            border: none;
+            box-shadow: 0 0 36px rgba(248, 208, 31, 0.2);
+        }
+
+        .avatar-placeholder {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            margin: 0 auto;
+        }
+
+        .avatar-placeholder svg {
+            width: 40px;
+            height: 40px;
+            opacity: 0.35;
+            fill: var(--accent);
+        }
+
+        /* NAMA – font Resedia */
+        .site-name {
+            font-family: 'Resedia', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 400;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            line-height: 0.85;
+            text-shadow:
+                0 0 40px rgba(248, 208, 31, 0.35),
+                0 0 80px rgba(248, 208, 31, 0.12);
+        }
+
+        /* TAGLINE – font Olivera Visual */
+        .site-tagline {
+            font-family: 'OliveraVisual', 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.5rem, 3vw, 1.1rem);
+            font-weight: 300;
+            font-style: normal;
+            color: var(--accent);
+            letter-spacing: 0.35em;
+            text-transform: lowercase;
+            margin-top: 0.2rem;
+            opacity: 0.75;
+        }
+
+        /* BIO */
+        .site-bio {
+            font-family: 'Montserrat', 'Inter', 'Playfair Display', sans-serif;
+            font-size: clamp(0.72rem, 2.5vw, 0.82rem);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.15em;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            font-style: normal;
+            line-height: 1.6;
+        }
+
+        /* DIVIDER */
+        .divider {
+            width: 48px;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 1.4rem auto 0;
+            border: none;
+        }
+
+        /* ============================================================
+           LINK CARDS
+           ============================================================ */
+        .links {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: clamp(0.85rem, 3vw, 1.15rem) clamp(1rem, 4vw, 1.6rem);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            text-decoration: none;
+            color: var(--accent);
+            position: relative;
+            overflow: hidden;
+            transition:
+                transform var(--transition),
+                border-color var(--transition),
+                box-shadow var(--transition),
+                background var(--transition);
+            animation: fadeUp 0.7s ease both;
+            width: 100%;
+        }
+
+        .link-card:nth-child(1) { animation-delay: 0.15s; }
+        .link-card:nth-child(2) { animation-delay: 0.25s; }
+        .link-card:nth-child(3) { animation-delay: 0.35s; }
+        .link-card:nth-child(4) { animation-delay: 0.45s; }
+
+        /* shimmer overlay */
+        .link-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                105deg,
+                transparent 30%,
+                rgba(248, 208, 31, 0.06) 50%,
+                transparent 70%
+            );
+            transform: translateX(-100%);
+            transition: transform 0.55s ease;
+        }
+
+        .link-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(248, 208, 31, 0.55);
+            box-shadow: 0 8px 32px rgba(248, 208, 31, 0.14);
+            background: var(--bg-hover);
+        }
+
+        .link-card:active {
+            transform: translateY(-1px);
+        }
+
+        /* ICON */
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: rgba(248, 208, 31, 0.08);
+            border: 1px solid var(--border);
+            transition: background var(--transition), border-color var(--transition);
+        }
+
+        .link-card:hover .link-icon {
+            background: rgba(248, 208, 31, 0.15);
+            border-color: rgba(248, 208, 31, 0.5);
+        }
+
+        .link-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent);
+        }
+
+        /* LABEL */
+        .link-label {
+            flex: 1;
+            font-family: 'Inter', 'Playfair Display', sans-serif;
+            font-size: clamp(0.88rem, 2.5vw, 1rem);
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        /* ARROW */
+        .link-arrow {
+            width: 18px;
+            height: 18px;
+            opacity: 0.4;
+            transition: opacity var(--transition), transform var(--transition);
+            fill: var(--accent);
+        }
+
+        .link-card:hover .link-arrow {
+            opacity: 0.9;
+            transform: translateX(3px);
+        }
+
+        /* ============================================================
+           PLATFORM BRAND COLORS
+           ============================================================ */
+
+        /* WhatsApp – hijau #ffffffff */
+        .link-card[data-platform="whatsapp"] {
+            --card-color: #25D366;
+            border-color: rgba(37, 211, 102, 0.2);
+            color: #ffffffff;
+        }
+        .link-card[data-platform="whatsapp"] .link-icon {
+            background: rgba(37, 211, 102, 0.1);
+            border-color: rgba(37, 211, 102, 0.25);
+        }
+        .link-card[data-platform="whatsapp"] .link-icon svg { fill: #25D366; }
+        .link-card[data-platform="whatsapp"] .link-label   { color: #25D366; }
+        .link-card[data-platform="whatsapp"] .link-arrow   { fill: #25D366; }
+        .link-card[data-platform="whatsapp"]::before {
+            background: linear-gradient(105deg, transparent 30%, rgba(37,211,102,0.07) 50%, transparent 70%);
+        }
+        .link-card[data-platform="whatsapp"]:hover {
+            border-color: rgba(37, 211, 102, 0.55);
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.15);
+        }
+        .link-card[data-platform="whatsapp"]:hover .link-icon {
+            background: rgba(37, 211, 102, 0.18);
+            border-color: rgba(37, 211, 102, 0.5);
+        }
+
+        /* Instagram – gradient pink/purple */
+        .link-card[data-platform="instagram"] {
+            border-color: rgba(225, 48, 108, 0.2);
+            color: #e1306c;
+        }
+        .link-card[data-platform="instagram"] .link-icon {
+            background: rgba(225, 48, 108, 0.1);
+            border-color: rgba(225, 48, 108, 0.25);
+        }
+        .link-card[data-platform="instagram"] .link-icon svg {
+            fill: url(#ig-gradient);
+        }
+        .link-card[data-platform="instagram"] .link-label {
+            color: #ffffff;
+            background: none;
+            -webkit-text-fill-color: #ffffff;
+        }
+        .link-card[data-platform="instagram"] .link-arrow {
+            fill: #e1306c;
+        }
+        .link-card[data-platform="instagram"]::before {
+            background: linear-gradient(105deg, transparent 30%, rgba(225,48,108,0.06) 50%, transparent 70%);
+        }
+        .link-card[data-platform="instagram"]:hover {
+            border-color: rgba(225, 48, 108, 0.55);
+            box-shadow: 0 8px 32px rgba(225, 48, 108, 0.15);
+        }
+        .link-card[data-platform="instagram"]:hover .link-icon {
+            background: rgba(225, 48, 108, 0.18);
+            border-color: rgba(225, 48, 108, 0.5);
+        }
+
+        /* TikTok – cyan #69C9D0 + pink #EE1D52 */
+        .link-card[data-platform="tiktok"] {
+            border-color: rgba(105, 201, 208, 0.2);
+            color: #69C9D0;
+        }
+        .link-card[data-platform="tiktok"] .link-icon {
+            background: rgba(105, 201, 208, 0.1);
+            border-color: rgba(105, 201, 208, 0.25);
+        }
+        .link-card[data-platform="tiktok"] .link-icon svg { fill: #69C9D0; }
+        .link-card[data-platform="tiktok"] .link-label {
+            color: #ffffff;
+            background: none;
+            -webkit-text-fill-color: #ffffff;
+        }
+        .link-card[data-platform="tiktok"] .link-arrow { fill: #EE1D52; }
+        .link-card[data-platform="tiktok"]::before {
+            background: linear-gradient(105deg, transparent 30%, rgba(105,201,208,0.07) 50%, transparent 70%);
+        }
+        .link-card[data-platform="tiktok"]:hover {
+            border-color: rgba(105, 201, 208, 0.55);
+            box-shadow: 0 8px 32px rgba(105, 201, 208, 0.13);
+        }
+        .link-card[data-platform="tiktok"]:hover .link-icon {
+            background: rgba(105, 201, 208, 0.18);
+            border-color: rgba(105, 201, 208, 0.5);
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-family: 'Montserrat', 'Inter', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            color: rgba(248, 208, 31, 0.22);
+            text-transform: uppercase;
+            animation: fadeUp 0.8s 0.6s ease both;
+        }
+
+        /* ============================================================
+           ANIMATIONS
+           ============================================================ */
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* WhatsApp label override – putih */
+        .link-card[data-platform="whatsapp"] .link-label {
+            color: #ffffff;
+        }
+
+        /* ============================================================
+           RESPONSIVE – Android kecil, tablet, desktop/Mac
+           ============================================================ */
+
+        /* Supaya meminimalisasi scroll pada ketinggian kecil/mobile */
+        @media (max-width: 900px) {
+            body { 
+                padding: min(1rem, 2vh) 1rem; 
+                min-height: 101dvh; /* Sengaja dibuat lebih 1% agar scroll aktif dan memicu efek bubble overscroll native */
+                overscroll-behavior-y: contain; /* Mengunci efek overscroll tetap di halamannya */
+            }
+            .header { margin-bottom: min(1.5rem, 3vh); }
+            .avatar-wrap { margin-bottom: min(1rem, 2vh); }
+            .site-bio { margin-top: min(1rem, 2vh); font-size: 0.65rem; } 
+            .links { gap: min(1.2rem, 2.5vh); }
+            .link-card { padding: min(1.1rem, 1.8vh) 1.2rem; }
+            .link-icon { width: 36px; height: 36px; }
+            .footer { margin-top: min(1.5rem, 3vh); font-size: 0.75rem; }
+        }
+
+        /* Android kecil (< 400px) */
+        @media (max-width: 400px) {
+            .container   { max-width: 100%; padding: 0; }
+            .link-card   { border-radius: 999px; }
+            .link-icon   { width: 34px; height: 34px; border-radius: 50%; }
+            .site-name   { font-size: 2.8rem; line-height: 0.85; }
+            .site-tagline { margin-top: 0.35rem; }
+            .site-bio { font-size: 0.6rem; }
+        }
+
+        /* Android medium / phablet (401px – 600px) */
+        @media (min-width: 401px) and (max-width: 600px) {
+            .container   { max-width: 92%; }
+            .site-name   { font-size: 3.2rem; line-height: 0.85; }
+            .site-tagline { margin-top: 0.35rem; }
+        }
+
+        /* Tablet portrait (601px – 900px) */
+        @media (min-width: 601px) and (max-width: 900px) {
+            .container   { max-width: 540px; }
+            .link-label  { font-size: 1.05rem; }
+            .link-icon   { width: 40px; height: 40px; }
+            .link-icon svg { width: 22px; height: 22px; }
+        }
+
+        /* Desktop / Mac (> 900px) */
+        @media (min-width: 901px) {
+            .container   { max-width: 500px; }
+            .link-card   { padding: 1.25rem 2.2rem; }
+            .link-card:hover { transform: translateY(-4px) scale(1.01); }
+            .link-label  { font-size: 1.05rem; letter-spacing: 0.09em; }
+        }
