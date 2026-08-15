@@ -1,4 +1,4 @@
-<?php require 'config.php'; ?>
+<?php require __DIR__ . '/lumintu/config.php'; ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
