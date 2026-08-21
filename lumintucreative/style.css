@@ -121,7 +121,7 @@
 
         /* NAMA – font Resedia */
         .site-name {
-            font-family: 'Resedia', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Resedia';
             font-size: clamp(3rem, 10vw, 5.5rem);
             font-weight: 400;
             color: var(--accent);
@@ -134,7 +134,7 @@
 
         /* TAGLINE – font Olivera Visual */
         .site-tagline {
-            font-family: 'OliveraVisual', 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+            font-family: 'OliveraVisual';
             font-size: clamp(1.5rem, 3vw, 1.1rem);
             font-weight: 300;
             font-style: normal;
@@ -147,7 +147,7 @@
 
         /* BIO */
         .site-bio {
-            font-family: 'Montserrat', 'Inter', 'Playfair Display', sans-serif;
+            font-family: 'Montserrat';
             font-size: clamp(0.72rem, 2.5vw, 0.82rem);
             font-weight: 500;
             color: #ffffffb3;
@@ -377,13 +377,13 @@
            FOOTER
            ============================================================ */
         .footer {
-            margin-top: 2.5rem;
+            margin-top: 2rem;
             text-align: center;
-            font-family: 'Montserrat', 'Inter', sans-serif;
-            font-size: 0.85rem;
+            font-family: 'Inter';
+            font-size: 0.75rem;
             letter-spacing: 0.12em;
-            color:  #ffffff;
-            text-transform: uppercase;
+            color: #ffffffb3;
+            text-transform: none;
             animation: fadeUp 0.8s 0.6s ease both;
         }
 
