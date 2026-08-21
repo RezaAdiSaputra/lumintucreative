@@ -360,7 +360,7 @@
             background: none;
             -webkit-text-fill-color: #ffffff;
         }
-        .link-card[data-platform="tiktok"] .link-arrow { fill: #EE1D52; }
+        .link-card[data-platform="tiktok"] .link-arrow { fill: #69C9D0; }
         .link-card[data-platform="tiktok"]::before {
             background: linear-gradient(105deg, transparent 30%, rgba(105,201,208,0.07) 50%, transparent 70%);
         }
