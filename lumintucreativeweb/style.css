@@ -1,0 +1,558 @@
+/* =========================================================
+   LUMINTU — GLOBAL STYLES
+   ========================================================= */
+
+:root {
+  --color-bg: #0b0b0b;
+  --color-surface: #141414;
+  --color-surface-2: #1b1b1b;
+  --color-text: #f5f5f5;
+  --color-muted: #a0a0a0;
+  --color-accent: #f4d000;
+  --color-border: rgba(255, 255, 255, 0.10);
+
+  --container: 1200px;
+  --radius: 18px;
+  --transition: 220ms ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  width: min(100% - 40px, var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding: 110px 0;
+}
+
+.section--dark {
+  background: var(--color-bg);
+}
+
+.section--surface {
+  background: var(--color-surface);
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 55px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 4.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.section-copy {
+  max-width: 650px;
+  margin-top: 20px;
+  color: var(--color-muted);
+}
+
+/* =========================================================
+   COMPONENTS
+   ========================================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  transition: transform var(--transition), background var(--transition), color var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: #090909;
+}
+
+.btn--secondary {
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.card {
+  padding: 28px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.site-nav {
+  position: fixed;
+  z-index: 1000;
+  inset: 0 0 auto;
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(11, 11, 11, 0.78);
+  backdrop-filter: blur(14px);
+}
+
+.nav-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+.logo span {
+  color: var(--color-accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #d0d0d0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover {
+  color: var(--color-accent);
+}
+
+.nav-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  align-items: end;
+  padding: 160px 0 90px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.88), rgba(0,0,0,.30)),
+    linear-gradient(0deg, rgba(0,0,0,.75), transparent 65%),
+    url("assets/images/hero.jpg") center/cover no-repeat;
+}
+
+.hero-content {
+  max-width: 950px;
+}
+
+.hero-title {
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  line-height: 0.88;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+}
+
+.hero-title span {
+  color: var(--color-accent);
+}
+
+.hero-copy {
+  max-width: 650px;
+  margin: 28px 0;
+  color: #d0d0d0;
+  font-size: 1.05rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.about-highlight {
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.about-text {
+  color: var(--color-muted);
+}
+
+/* =========================================================
+   WHY US
+   ========================================================= */
+
+.why-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card-number {
+  display: block;
+  margin-bottom: 55px;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.card-title {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.card-copy {
+  color: var(--color-muted);
+}
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+.services-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.service-card {
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-card h3 {
+  font-size: 1.35rem;
+  text-transform: uppercase;
+}
+
+.service-card ul {
+  margin-top: 30px;
+  padding-left: 18px;
+  color: var(--color-muted);
+}
+
+/* =========================================================
+   PORTFOLIO
+   ========================================================= */
+
+.portfolio-grid {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.project {
+  position: relative;
+  min-height: 420px;
+  grid-column: span 6;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.project--large {
+  grid-column: span 7;
+}
+
+.project--small {
+  grid-column: span 5;
+}
+
+.project img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.project:hover img {
+  transform: scale(1.04);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 28px;
+  background: linear-gradient(transparent, rgba(0,0,0,.92));
+}
+
+.project-category {
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   FEATURE SECTIONS
+   ========================================================= */
+
+.feature {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.feature-media {
+  min-height: 520px;
+  border-radius: var(--radius);
+  background: url("assets/images/feature.jpg") center/cover no-repeat;
+}
+
+.feature-list {
+  display: grid;
+  gap: 0;
+  margin-top: 35px;
+}
+
+.feature-item {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.feature-item span:last-child {
+  color: var(--color-muted);
+}
+
+/* =========================================================
+   CLIENTS
+   ========================================================= */
+
+.clients-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.client-logo {
+  min-height: 110px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: #888;
+  font-weight: 800;
+}
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta {
+  padding: 140px 0;
+  background:
+    linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.90)),
+    url("assets/images/cta.jpg") center/cover no-repeat;
+}
+
+.cta-title {
+  max-width: 950px;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: .9;
+  letter-spacing: -.07em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  padding: 65px 0 25px;
+  background: #070707;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 55px;
+}
+
+.footer-heading {
+  margin-bottom: 15px;
+  font-size: .75rem;
+  color: var(--color-muted);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.footer-links {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  color: #d0d0d0;
+  font-size: .9rem;
+}
+
+.footer-bottom {
+  padding-top: 22px;
+  border-top: 1px solid var(--color-border);
+  color: #666;
+  font-size: .72rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 76px;
+    left: 20px;
+    right: 20px;
+    display: none;
+    padding: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    background: #111;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px;
+  }
+
+  .about-grid,
+  .feature {
+    grid-template-columns: 1fr;
+  }
+
+  .why-grid,
+  .clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project,
+  .project--large,
+  .project--small {
+    grid-column: span 12;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 28px, var(--container));
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+
+  .hero {
+    padding-bottom: 60px;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 18vw, 5rem);
+  }
+
+  .services-grid,
+  .why-grid,
+  .clients-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project {
+    min-height: 320px;
+  }
+
+  .feature-media {
+    min-height: 360px;
+  }
+}
