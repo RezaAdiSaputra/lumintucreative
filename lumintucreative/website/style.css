@@ -1573,6 +1573,10 @@ button.btn {
     font-size: clamp(1.9rem, 6vw, 2.4rem);
   }
 
+  .footer-logo-sub {
+    margin-top: -14px;
+  }
+
   .footer-social a {
     width: 46px;
     height: 46px;
@@ -1695,6 +1699,7 @@ button.btn {
   .footer-logo-sub {
     font-size: 0.68rem;
     letter-spacing: 0.1em;
+    margin-top: -8px;
   }
 
   .footer-social {
@@ -1705,6 +1710,12 @@ button.btn {
     width: 42px;
     height: 42px;
   }
+
+  .footer-social a svg {
+    width: 18px;
+    height: 18px;
+  }
+}
 
   .footer-social a svg {
     width: 18px;
