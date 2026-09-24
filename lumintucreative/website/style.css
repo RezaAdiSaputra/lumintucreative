@@ -1117,7 +1117,7 @@ button.btn {
 
 .location-link {
   color: var(--color-text);
-  text-decoration: underline;
+  text-decoration: none;
   text-underline-offset: 3px;
   transition: color var(--transition);
 }
